@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴 상세</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>메뉴 상세</h1>
+    <div id="menuDetail"></div>
+    <button onclick="location.href='list.html'">목록으로 이동</button>
+</div>
+
+<script src="script.js"></script>
+<script>
+    (async function(){
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+        const menu = await fetchMenuById(id);
+        const div = document.getElementById("menuDetail");
+        if(menu){
+            div.innerHTML = `
+                <p>메뉴명: ${menu.name}</p>
+                <p>종류: ${menu.category}</p>
+                <p>가격: ${menu.price}원</p>
+                <p>매움 단계: ${menu.spicyLevel}</p>
+                <p>관련 기분: ${menu.mood.join(", ")}</p>
+            `;
+        } else {
+            div.textContent = "메뉴를 찾을 수 없습니다.";
+        }
+    })();
+</script>
+</body>
+</html>

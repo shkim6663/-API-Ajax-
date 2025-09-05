@@ -21,3 +21,10 @@
 
 
 4.공통 ui와 흐름 연결
+
+5. 전체 실행 영상
+
+   
+
+https://github.com/user-attachments/assets/7a21ad79-b74d-4fb3-a8d7-09e3a2986197
+
